@@ -39,6 +39,11 @@ app.get('/teste', (req, res) => {
 
 });
 
+app.post('/listening', (req, res) => {
+  console.log('Received task with payload: %s', req.body);
+  res.send(`Printed task payload: ${req.body}`).end();
+});
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
