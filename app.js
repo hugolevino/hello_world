@@ -40,8 +40,10 @@ app.get('/teste', (req, res) => {
 });
 
 app.post('/listening', (req, res) => {
+  console.log(req.body);
   console.log('Received task with payload: %s', req.body);
   res.send(`Printed task payload: ${req.body}`).end();
+  
 });
 
 
