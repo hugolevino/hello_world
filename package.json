@@ -1,15 +1,37 @@
 {
   "name": "hello_world",
-  "description": "My first deployed code to GCP",
+  "description": "First GCP app deployed",
   "version": "0.0.1",
+  "private": true,
   "license": "Apache-2.0",
   "author": "Hugo Levino",
-  "engines": {
-    "node": ">=8"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hugolevino/hello_world.git"
   },
-  "private": true
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "deploy": "gcloud app deploy",
+    "start": "node app.js",
+    "system-test": "repo-tools test app",
+    "test": "npm run system-test",
+    "e2e-test": "repo-tools test deploy"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@google-cloud/nodejs-repo-tools": "^3.0.0"
+  },
+  "cloud-repo-tools": {
+    "test": {
+      "app": {
+        "msg": "Hello, world!"
+      }
+    },
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
 }
