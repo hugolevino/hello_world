@@ -39,7 +39,7 @@ async function createTask(project, location, queue, payload, inSeconds) {
   const task = {
     appEngineHttpRequest: {
       httpMethod: 'POST',
-      relativeUri: '/log_payload',
+      relativeUri: '/listening',
     },
   };
 
