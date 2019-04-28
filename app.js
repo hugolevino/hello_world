@@ -3,11 +3,13 @@ const rp = require('request-promise');
 
 const app = express();
 
-app.get('/', (req, res) => {
+app.get('/frete', (req, res) => {
+
+	var cep = req.query.cep;
 
 	var options = {
 		method: 'GET',
-		uri: 'https://b2w-region-v1.b2w.io/b2w-region/region?zipcode=13467500',
+		uri: 'https://b2w-region-v1.b2w.io/b2w-region/region?zipcode=' + cep,
 		resolveWithFullResponse: true,
 		headers: {
 			"content-type": "application/json",
@@ -28,6 +30,15 @@ app.get('/', (req, res) => {
 	});
 
 });
+
+app.get('/teste', (req, res) => {
+
+	 res.status(200);
+	 res.send('SPEED TEST');
+	 res.end();
+
+});
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
