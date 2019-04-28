@@ -1,7 +1,13 @@
 const express = require('express');
 const rp = require('request-promise');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.enable('trust proxy');
+app.use(bodyParser.raw());
+app.use(bodyParser.json());
+app.use(bodyParser.text());
 
 app.get('/frete', (req, res) => {
 
