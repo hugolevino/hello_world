@@ -20,9 +20,7 @@ async function query() {
 
   const bigqueryClient = new BigQuery();
 
-  const query = `SELECT cep
-    FROM \`bigdata-bernard.my_new_dataset.ceps\`
-    LIMIT 5`;
+  const query = `SELECT cep FROM \`bigdata-bernard.my_new_dataset.ceps\` `;
   const options = {
     query: query,
     location: 'US',
